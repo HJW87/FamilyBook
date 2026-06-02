@@ -1,0 +1,1 @@
+import{r as e}from"./request-D_mvN7ld.js";function d(r){return e.get("/records",{params:r})}function c(r){return e.post("/records",r)}function n(r,t){return e.put(`/records/${r}`,t)}function s(r){return e.delete(`/records/${r}`)}export{c as a,s as d,d as g,n as u};

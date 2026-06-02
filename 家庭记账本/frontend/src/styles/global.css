@@ -1,0 +1,247 @@
+/* ============================================
+   家庭记账本 — 全局样式（暖金主题 · 生产版）
+   ============================================ */
+
+/* === CSS 变量 === */
+:root {
+  --primary-bg: #FFF8DC;
+  --primary-light: #FFFDF5;
+  --primary-dark: #F5DEB3;
+  --accent: #FFA500;
+  --accent-hover: #E8960A;
+  --accent-light: #FFF0D4;
+  --text-primary: #2c2c2c;
+  --text-secondary: #777777;
+  --text-placeholder: #aaaaaa;
+  --border: #E0D5B8;
+  --border-light: #F0EBD8;
+  --income: #27AE60;
+  --income-bg: #E8F8F0;
+  --expense: #E74C3C;
+  --expense-bg: #FDEDEC;
+  --danger: #E74C3C;
+  --danger-hover: #C0392B;
+  --white: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.10);
+  --radius: 10px;
+  --radius-lg: 16px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === Element Plus 主题覆盖 === */
+:root {
+  --el-color-primary: #FFA500;
+  --el-color-primary-light-3: #FFB733;
+  --el-color-primary-light-5: #FFC966;
+  --el-color-primary-light-7: #FFDB99;
+  --el-color-primary-light-9: #FFEDCC;
+  --el-color-primary-dark-2: #E8960A;
+  --el-bg-color-page: #FFF8DC;
+  --el-border-radius-base: 10px;
+  --el-border-radius-round: 20px;
+}
+
+/* === 全局重置 === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  background-color: var(--primary-bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === 滚动条 === */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+/* === 选中颜色 === */
+::selection {
+  background: #FFE4B5;
+  color: var(--text-primary);
+}
+
+/* === 通用工具类 === */
+.text-income {
+  color: var(--income);
+  font-weight: 600;
+}
+
+.text-expense {
+  color: var(--expense);
+  font-weight: 600;
+}
+
+.amount-large {
+  font-size: 24px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* === 页面容器 === */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 24px;
+}
+
+/* === 卡片样式 === */
+.stats-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 24px 20px;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1px solid transparent;
+}
+
+.stats-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-light);
+}
+
+.stats-card .card-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.stats-card .card-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.stats-card .card-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* === ElMessage 定位在底部 === */
+.el-message {
+  top: auto !important;
+  bottom: 24px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.el-message-fade-enter-from,
+.el-message-fade-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+/* === Element Plus 全局微调 === */
+.el-button--primary {
+  --el-button-hover-bg-color: #E8960A;
+  --el-button-active-bg-color: #CC7A00;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.el-table {
+  border-radius: var(--radius) !important;
+  overflow: hidden;
+}
+
+.el-table th.el-table__cell {
+  background: #fafaf8 !important;
+  color: #888 !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  border-bottom: 2px solid #f0ede0 !important;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background: #FFFDF7;
+}
+
+.el-dialog {
+  border-radius: var(--radius-lg) !important;
+}
+
+.el-tabs--border-card {
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden;
+  box-shadow: var(--shadow) !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+.el-tabs--border-card > .el-tabs__header {
+  background: #fafaf8 !important;
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
+.el-alert {
+  border-radius: var(--radius) !important;
+}
+
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select .el-input__wrapper {
+  border-radius: var(--radius) !important;
+  transition: all var(--transition);
+}
+
+.el-input__wrapper:hover,
+.el-select .el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px var(--accent-light) inset !important;
+}
+
+.el-pagination.is-background .el-pager li.is-active {
+  background-color: var(--accent) !important;
+}
+
+/* === Element Plus 按钮圆角 === */
+.el-button {
+  border-radius: var(--radius);
+  transition: all var(--transition);
+}
+
+.el-button--large {
+  border-radius: 12px;
+}
+
+/* === 响应式 === */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 12px;
+    padding-bottom: 72px;
+  }
+
+  .amount-large {
+    font-size: 20px;
+  }
+
+  .stats-card {
+    padding: 16px 12px;
+  }
+
+  .stats-card .card-value {
+    font-size: 20px;
+  }
+}

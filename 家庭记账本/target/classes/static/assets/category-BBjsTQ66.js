@@ -1,0 +1,1 @@
+import{r as t}from"./request-DfJl0j7s.js";function o(e){return t.get("/categories",{params:{type:e}})}function s(e){return t.post("/categories",e)}function n(e,r){return t.put(`/categories/${e}`,r)}function u(e){return t.delete(`/categories/${e}`)}export{s as a,u as d,o as g,n as u};
