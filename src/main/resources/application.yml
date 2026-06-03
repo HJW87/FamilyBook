@@ -1,0 +1,105 @@
+spring:
+  application:
+    name: family-account
+
+  # MySQL 数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/family_account?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
+    username: root
+    password: "222555"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 300000
+      max-lifetime: 1200000
+
+  # SQL 初始化（首次启动时执行 db/init.sql 或让 DataInitializer 处理）
+  sql:
+    init:
+      mode: never
+
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
+
+  # 用户头像上传目录（相对于应用工作目录）
+  upload:
+    avatar-dir: ./uploads/avatars
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  # 实体类扫描包
+  type-aliases-package: com.familyaccount.entity
+  # Mapper XML 文件位置
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    # 驼峰命名自动映射
+    map-underscore-to-camel-case: true
+    # SQL 日志（开发阶段开启，答辩后可关闭）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      # 主键自增策略
+      id-type: auto
+      # 逻辑删除（暂不使用）
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# Knife4j (Swagger) 配置
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.familyaccount.controller
+
+# 服务器配置
+server:
+  port: 8080
+
+# 日志配置
+logging:
+  level:
+    com.familyaccount: debug
+    org.springframework: warn
+
+# ============================================
+# JWT 配置（用户认证已改为数据库 users 表）
+# ============================================
+app:
+  jwt:
+    # JWT 签名密钥（至少32位，生产环境请修改）
+    secret: FamilyAccountBook2024SecretKeyForJWT!!
+    # Token 过期时间（小时）
+    expiration-hours: 24
+
+  # ============================================
+  # AI 助手配置（通义千问 DashScope）
+  # ============================================
+  ai:
+    # 是否启用 AI 助手
+    enabled: true
+    # DashScope API Key（从 https://dashscope.console.aliyun.com/ 获取）
+    api-key:
+    # API 基础地址
+    base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    # 模型：qwen-turbo（快速便宜）/ qwen-plus（效果更好）
+    model: qwen-turbo
+    # 最大输出 Token
+    max-tokens: 1000
+    # 温度（0-1，越低输出越确定）
+    temperature: 0.1
+    # 请求超时（秒）
+    timeout-seconds: 30
