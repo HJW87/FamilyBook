@@ -1,6 +1,6 @@
 # 🏠 家庭记账本
 
-> 家庭日常财务收支管理系统 — 计算机专业大三期末大作业
+> 家庭日常财务收支管理系统
 
 ## ✨ 功能特性
 
@@ -85,7 +85,7 @@ cd .. && mvn clean package -DskipTests
 java -jar target/family-account-1.0.0.jar
 ```
 
-详细部署说明见 [docs/07-部署说明.md](docs/07-部署说明.md)
+详细部署说明见
 
 ## 📁 项目结构
 
