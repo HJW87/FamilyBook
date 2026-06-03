@@ -1,1 +1,0 @@
-import{r}from"./request-D2RFaJhM.js";function n(e){return r.get("/records",{params:e})}function s(e){return r.post("/records",e)}function d(e,t){return r.put(`/records/${e}`,t)}function u(e){return r.delete(`/records/${e}`)}function c(){return r.get("/family/members")}export{s as a,n as b,u as d,c as g,d as u};

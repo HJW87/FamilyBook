@@ -1,1 +1,0 @@
-import{r as n}from"./request-D_mvN7ld.js";function e(t){return n.post("/ai/chat",{message:t})}function o(){return n.get("/ai/config")}function r(t){return n.put("/ai/config",{apiKey:t})}export{o as g,e as s,r as u};
