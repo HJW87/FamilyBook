@@ -93,8 +93,6 @@ java -jar target/family-account-1.0.0.jar
 家庭记账本/
 ├── pom.xml                    Maven 配置
 ├── README.md                  本文件
-├── docs/                      项目文档（8份）
-├── dev-log/                   开发日志
 ├── db/                        数据库脚本（init.sql + 迁移脚本）
 ├── src/main/java/             Spring Boot 后端
 │   └── com/familyaccount/
